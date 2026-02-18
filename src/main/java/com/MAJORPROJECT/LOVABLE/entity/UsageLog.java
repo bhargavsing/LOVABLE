@@ -5,7 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.Instant;
-@Entity
+
 @Getter
 @Setter
 @NoArgsConstructor

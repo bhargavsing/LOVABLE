@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Entity
+
 @Getter
 @Setter
 @NoArgsConstructor
