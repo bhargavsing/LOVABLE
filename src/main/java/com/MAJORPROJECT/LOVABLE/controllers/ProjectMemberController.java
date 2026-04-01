@@ -4,6 +4,7 @@ import com.MAJORPROJECT.LOVABLE.dto.member.InviteMemberRequest;
 import com.MAJORPROJECT.LOVABLE.dto.member.MemberResponse;
 import com.MAJORPROJECT.LOVABLE.dto.member.UpdateMemberRoleRequest;
 import com.MAJORPROJECT.LOVABLE.services.ProjectMemberService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class ProjectMemberController {
     }
     @PostMapping
     public ResponseEntity<MemberResponse> inviteMember(@PathVariable Long projectId,
-                                         @RequestBody InviteMemberRequest request){
+                                         @RequestBody @Valid InviteMemberRequest request){
         Long userId=1L;
         return ResponseEntity.status(HttpStatus.CREATED).body(projectMemberService.inviteMember(projectId,request,userId));
     }
@@ -33,16 +34,17 @@ public class ProjectMemberController {
 
     public ResponseEntity<MemberResponse> updateMemberRole(@PathVariable Long projectId,
                                                            @PathVariable Long memberId,
-                                                           @RequestBody UpdateMemberRoleRequest request){
+                                                           @RequestBody @Valid UpdateMemberRoleRequest request){
         Long userId=1L;
         return ResponseEntity.ok(projectMemberService.updateMember(projectId,memberId,request,userId));
 
     }
 
     @DeleteMapping("/{memberId}")
-    public ResponseEntity<MemberResponse> deleteProjectMember(@PathVariable Long projectId,
+    public ResponseEntity<Void> removeMember(@PathVariable Long projectId,
                                                            @PathVariable Long memberId){
         Long userId=1L;
-        return ResponseEntity.ok(projectMemberService.deleteProjectMember(projectId,memberId,userId));
+        projectMemberService.removeProjectMember(projectId,memberId,userId);
+        return ResponseEntity.noContent().build();
     }
 }

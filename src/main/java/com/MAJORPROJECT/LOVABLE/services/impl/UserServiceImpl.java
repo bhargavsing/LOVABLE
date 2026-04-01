@@ -12,8 +12,3 @@ public class UserServiceImpl implements UserService {
     }
 }
 
-
-//CONTROLLERS -> SERVICES ->SERVICESIMPL ->(REPO)->DATABASE
-//CONTROLLERS ->DEPENDS ON SERVICES ->  SERVICEIMPL(PROJECTMEMBERSERVICETEST implements particaluarService)
-//ProjectMemberServicecacgeImpl ->implements particaularService
-//INTERFACES

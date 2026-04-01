@@ -26,8 +26,6 @@ public class User {
 
     String passwordHash;
 
-    String avatar_url;
-
     @CreationTimestamp
     Instant createdAt;
     @UpdateTimestamp

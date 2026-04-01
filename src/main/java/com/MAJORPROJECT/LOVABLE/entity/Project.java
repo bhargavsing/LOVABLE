@@ -24,8 +24,8 @@ public class Project {
     @Column(nullable = false)
     String name;
 
-    @JoinColumn(name = "owner_id",nullable = false)
     @ManyToOne
+    @JoinColumn(name = "owner_id",nullable = false)
     User owner;
 
     Boolean isPublic =false;
@@ -34,4 +34,5 @@ public class Project {
     @UpdateTimestamp
     Instant updatedAt;
     Instant deletedAt;
+
 }
