@@ -37,7 +37,6 @@ public class ProjectServiceImpl implements ProjectService {
                 .owner(owner)
                 .isPublic(false)
                 .build();
-
         project=projectRepository.save(project);
         return projectMapper.toProjectResponse(project);
     }
